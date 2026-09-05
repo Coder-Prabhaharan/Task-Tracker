@@ -4,56 +4,54 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TODO</title>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-      <div class="container">
-        <input type="text" id="task">
+    <div class="container">
+      <div class="task_container">
+        <h1>Task Tracker</h1>
+        <input type="text" id="task" />
         <p id="message"></p>
         <button id="addTask">Add Task</button>
-        <ul id="taskList">
-
-        </ul>
+        <ul id="taskList"></ul>
       </div>
-   
-      <script>
-        let task=document.getElementById('task')
-        let message=document.getElementById('message')
-        let addBtn=document.getElementById('addTask')
-        let taskList=document.getElementById('taskList')
+    </div>
 
-        addBtn.addEventListener("click",()=>{
-        
-            if(task.value ==""){
-                message.textContent="Enter Your task"
-                return;
-            }
+    <script>
+      let task = document.getElementById("task");
+      let message = document.getElementById("message");
+      let addBtn = document.getElementById("addTask");
+      let taskList = document.getElementById("taskList");
 
-            message.textContent=""
-            let li=document.createElement("li")
-            li.textContent=task.value;
-            taskList.appendChild(li);
+      addBtn.addEventListener("click", () => {
+        if (task.value == "") {
+          message.textContent = "Enter Your task";
+          return;
+        }
 
-            let complete=document.createElement("button")
-            complete.textContent="Complete";
-            taskList.appendChild(complete)
-            complete.addEventListener("click",()=>{
-                li.style.textDecoration="line-through"
-            })
+        message.textContent = " ";
+        let li = document.createElement("li");
+        li.textContent = task.value;
+        taskList.appendChild(li);
+        task.value = "";
 
-            let del=document.createElement("button")
-            del.textContent="delete"
-            taskList.appendChild(del)
+        let complete = document.createElement("button");
+        complete.textContent = "Complete";
+        taskList.appendChild(complete);
+        complete.addEventListener("click", () => {
+          li.style.textDecoration = "line-through";
+        });
 
-            del.addEventListener("click",()=>{
-                li.remove()
-            })
-            
-            
+        let del = document.createElement("button");
+        del.textContent = "delete";
+        taskList.appendChild(del);
 
-            
-        })
-
-          
-      </script>
+        del.addEventListener("click", () => {
+          li.remove();
+          del.remove();
+          complete.remove();
+        });
+      });
+    </script>
   </body>
 </html>
