@@ -52,17 +52,25 @@ p{
     background-color: rgb(29, 28, 28);
 }
 
-ul li{
-    
-}
+
 
 button{
     padding:5px;
     margin-right: 10px;
     border:1px solid black;
     background-color: red;
+    border-radius: 3px;
+}
+
+button:hover{
+    background-color: rgb(240, 33, 33);
 }
 
 ul{
-    display: block  ;
+    display: block ;
+}
+
+ul li{
+    margin-bottom: 3px;
+    font-size:20px;
 }
